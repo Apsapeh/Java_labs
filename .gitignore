@@ -1,0 +1,8 @@
+.idea
+out
+*/*.iml
+*/out
+*/.idea
+*/*/~*.doc
+*/*/~*.docx
+*/*/compiled_classes/

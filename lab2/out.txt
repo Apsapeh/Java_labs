@@ -1,0 +1,105 @@
+Leavanny Картофель from the team White enters the battle!
+Garbodor Лук from the team Yellow enters the battle!
+Leavanny Картофель is using Light Screen. 
+Garbodor Лук decreases special attack.
+
+Garbodor Лук is using Whirlwind. 
+Leavanny Картофель is paralyzed
+
+Leavanny Картофель is using Mimic. 
+
+Garbodor Лук is using Shadow Punch. 
+Leavanny Картофель loses 4 hit points.
+
+Leavanny Картофель is using Hiden Power. 
+Critical hit!
+Garbodor Лук loses 8 hit points.
+
+Garbodor Лук is using Shadow Punch. 
+Leavanny Картофель loses 5 hit points.
+
+Leavanny Картофель is using Mimic. 
+
+Garbodor Лук is using Whirlwind. 
+
+Leavanny Картофель is using Thunderbolt. 
+Critical hit!
+Garbodor Лук loses 13 hit points.
+Garbodor Лук faints.
+Ralts Чеснок from the team Yellow enters the battle!
+Leavanny Картофель is using Light Screen. 
+Ralts Чеснок decreases special attack.
+
+Ralts Чеснок misses
+
+Leavanny Картофель is using Mimic. 
+
+Ralts Чеснок misses
+
+Leavanny Картофель is using Thunderbolt. 
+Critical hit!
+Ralts Чеснок loses 8 hit points.
+
+Ralts Чеснок misses
+
+Leavanny Картофель is using Hiden Power. 
+Critical hit!
+Ralts Чеснок loses 7 hit points.
+Ralts Чеснок faints.
+Gardevoir Морковь from the team Yellow enters the battle!
+Gardevoir Морковь is using Blizzard. 
+Leavanny Картофель loses 12 hit points.
+Leavanny Картофель faints.
+Corphish Помидор from the team White enters the battle!
+Gardevoir Морковь is using Blizzard. 
+Corphish Помидор loses 5 hit points.
+
+Corphish Помидор is using Shadow Punch. 
+Gardevoir Морковь loses 6 hit points.
+
+Gardevoir Морковь is using Octazooka. 
+Corphish Помидор loses 3 hit points.
+
+Corphish Помидор is using Shadow Punch. 
+Gardevoir Морковь loses 5 hit points.
+
+Gardevoir Морковь is using Octazooka. 
+Corphish Помидор loses 4 hit points.
+
+Corphish Помидор misses
+
+Gardevoir Морковь is using Octazooka. 
+Corphish Помидор loses 2 hit points.
+
+Corphish Помидор is using Whirlwind. 
+Gardevoir Морковь is paralyzed
+
+Gardevoir Морковь misses
+
+Corphish Помидор is using Thunder Wave. 
+
+Gardevoir Морковь is using Octazooka. 
+Critical hit!
+Corphish Помидор loses 5 hit points.
+Corphish Помидор faints.
+Kirlia Огурец from the team White enters the battle!
+Kirlia Огурец misses
+
+
+Gardevoir Морковь is using Thunder Wave. 
+Kirlia Огурец is paralyzed
+
+Kirlia Огурец is using Thunder Shock. 
+Critical hit!
+Gardevoir Морковь loses 4 hit points.
+
+Kirlia Огурец is using Octazooka. 
+Critical hit!
+Kirlia Огурец loses 13 hit points.
+
+Kirlia Огурец is using Octazooka. 
+Critical hit!
+Kirlia Огурец loses 14 hit points.
+Both pokemons faint.
+Team White loses its last Pokemon.
+The team Yellow wins the battle!
