@@ -1,8 +1,4 @@
-import estates.ManufactureFactory;
 import persons.MrSprouts;
-import product.ProductTypeEnum;
-import estates.Latifundia;
-import persons.*;
 
 public class Main {
     public static void main(String[] args) {
