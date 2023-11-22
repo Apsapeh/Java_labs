@@ -1,2 +1,7 @@
-package persons;public interface Worker {
+package persons;
+
+import product.Product;
+
+public interface Worker {
+    Product work();
 }

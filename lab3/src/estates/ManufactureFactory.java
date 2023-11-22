@@ -1,22 +1,47 @@
-class  ManufactureFactory extends Estate implements Factory {
+package estates;
+
+import product.ProductTypeEnum;
+
+import java.util.HashMap;
+
+public class  ManufactureFactory extends Estate implements Factory {
+    public ManufactureFactory() {
+        super();
+    }
+    public ManufactureFactory(String address) {
+        super(address);
+    }
+
     @Override
-    public void produce() {
-        // Производит ткань
+    public HashMap<ProductTypeEnum, Integer> produce() {
+        HashMap<ProductTypeEnum, Integer> result = new HashMap<>();
+        result.put(ProductTypeEnum.CLOTH, 163);
+        return result;
     }
 
     @Override
     public String toString() {
-        final Estate in = (Estate)this;
-        return "ManufactureFactory {\n\t" + "in_class = " + super.toString() + "\n}";
+        return  "estates.ManufactureFactory {" +
+                "inherit_class='" + super.toString() + "'" +
+                "}";
     }
 
     @Override
     public boolean equals(Object obj) {
-        return this.getClass() == obj.getClass();
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        if (!super.equals(obj))
+            return false;
+
+        return true;
     }
 
     @Override
     public int hashCode() {
-        return 0;
+        int hash = 3;
+        hash = 53 * hash * super.hashCode();
+        return hash;
     }
 }

@@ -1,8 +1,10 @@
+package persons;
+
 public abstract class Person {
     protected String name;
     protected int age;
 
-    Person(String name, int age) {
+    public Person(String name, int age) {
         this.name = name;
         this.age = age;
     }
@@ -23,18 +25,20 @@ public abstract class Person {
 
     @Override
     public String toString() {
-        return  "Person {" +
+        return  "persons.Person {" +
                 "name='" + (this.name != null ? this.name : "null") + "', " +
                 "age=" + age + "}";
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == null)
-            return false;
-        if (obj == this)
+        if (this == obj)
             return true;
-        return obj instanceof Estate;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+
+        final Person o = (Person)obj;
+        return (this.name.equals(o.name) && this.age == o.age);
     }
 
     @Override

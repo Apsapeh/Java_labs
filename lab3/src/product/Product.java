@@ -1,4 +1,4 @@
-package mypaca;
+package product;
 
 public class Product {
     public ProductTypeEnum type;
@@ -11,9 +11,9 @@ public class Product {
 
     @Override
     public String toString() {
-        return  "Product {" +
-                "type='" + type.toString() + ", " +
-                "count=" + count + "'}";
+        return  "product.Product {" +
+                "type=" + type.toString() + ", " +
+                "count=" + count + "}";
     }
 
     @Override

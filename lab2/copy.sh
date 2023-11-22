@@ -1,0 +1,1 @@
+scp -P 2222 -r src/* s414219@se.ifmo.ru:/home/studs/s414219/labs/lab2/src/

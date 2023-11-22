@@ -1,7 +1,15 @@
 package persons;
 
-public class CottonShorties extends Person implements Worker {
-    public CottonShorties(String name, int age) {
+import product.*;
+
+public class CottonShorty extends Shorty implements Worker {
+    public CottonShorty(String name, int age) {
         super(name, age);
+        this.type = ProductTypeEnum.COTTON;
+    }
+
+    @Override
+    public Product work() {
+        return new Product(this.type, 3);
     }
 }

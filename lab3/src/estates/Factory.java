@@ -1,3 +1,8 @@
+package estates;
+
+import java.util.HashMap;
+import product.ProductTypeEnum;
+
 public interface Factory {
-    void produce();
+    HashMap<ProductTypeEnum, Integer> produce();
 }

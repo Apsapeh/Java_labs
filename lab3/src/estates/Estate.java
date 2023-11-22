@@ -1,5 +1,12 @@
+package estates;
+
 public abstract class Estate {
     protected String address;
+
+    public Estate() {}
+    public Estate(String address) {
+        this.address = address;
+    }
 
     public String getAddress() {
         return this.address;
@@ -11,17 +18,19 @@ public abstract class Estate {
 
     @Override
     public String toString() {
-        return  "Estate {" +
+        return  "estates.Estate {" +
                 "address='" + (this.address != null ? this.address : "null") + "'}";
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == null)
-            return false;
-        if (obj == this)
+        if (this == obj)
             return true;
-        return obj instanceof Estate;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+
+        final Estate o = (Estate)obj;
+        return this.address.equals(o.address);
     }
 
     @Override

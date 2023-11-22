@@ -1,9 +1,6 @@
 package src.attacks;
 
-import ru.ifmo.se.pokemon.Effect;
-import ru.ifmo.se.pokemon.Pokemon;
-import ru.ifmo.se.pokemon.StatusMove;
-import ru.ifmo.se.pokemon.Type;
+import ru.ifmo.se.pokemon.*;
 
 public class Whirlwind extends StatusMove {
     public Whirlwind(){

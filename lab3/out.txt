@@ -1,0 +1,492 @@
+==> Main.java <==
+import estates.ManufactureFactory;
+import persons.MrSprouts;
+import product.ProductTypeEnum;
+import estates.Latifundia;
+import persons.*;
+
+public class Main {
+    public static void main(String[] args) {
+        MrSprouts mrSprouts = new MrSprouts();
+        mrSprouts.manage();
+    }
+}
+
+/*
+    Господин Спрутс был владельцем огромной мануфактурной фабрики,
+    известной под названием Спрутсовской мануфактуры, выпускавшей
+    несметные количества самых разнообразных тканей. Кроме того,
+    у него было около тридцати сахарных заводов и несколько
+    латифундий, то есть громаднейших земельных участков.
+    На всех этих земельных участках работали тысячи коротышек,
+    которые выращивали хлопок для Спрутсовской мануфактуры,
+    сахарную свеклу для его сахарных заводов, а также огромные
+    количества лунной ржи и пшеницы, которыми господин Спрутс
+    вел большую торговлю.
+*/
+==> estates/Estate.java <==
+package estates;
+
+public abstract class Estate {
+    protected String address;
+
+    public Estate() {}
+    public Estate(String address) {
+        this.address = address;
+    }
+
+    public String getAddress() {
+        return this.address;
+    }
+
+    public void setAddress(String new_address) {
+        this.address = new_address;
+    }
+
+    @Override
+    public String toString() {
+        return  "estates.Estate {" +
+                "address='" + (this.address != null ? this.address : "null") + "'}";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+
+        final Estate o = (Estate)obj;
+        return this.address.equals(o.address);
+    }
+
+    @Override
+    public int hashCode() {
+        return 53 * this.address.hashCode();
+    }
+}
+
+==> estates/Factory.java <==
+package estates;
+
+import java.util.HashMap;
+import product.ProductTypeEnum;
+
+public interface Factory {
+    HashMap<ProductTypeEnum, Integer> produce();
+}
+==> estates/Latifundia.java <==
+package estates;
+
+import persons.Worker;
+import product.ProductTypeEnum;
+import product.Product;
+
+import java.util.HashMap;
+import java.util.Vector;
+
+public class Latifundia extends Estate implements Factory {
+    public Vector<Worker> workers = new Vector<>();
+
+    public Latifundia() {
+        super();
+    }
+    public Latifundia(String address) {
+        super(address);
+    }
+
+    public HashMap<ProductTypeEnum, Integer> produce() {
+        HashMap<ProductTypeEnum, Integer> result = new HashMap<>();
+        for (Worker w : workers) {
+            final Product pr = w.work();
+            result.merge(pr.type, pr.count, Integer::sum);
+        }
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return  "estates.Latifundia {" +
+                "inherit_class='" + super.toString() + "', " +
+                "workers=" + this.workers.toString() +
+                "}";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        if (!super.equals(obj))
+            return false;
+
+        return workers.equals(((Latifundia) obj).workers);
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 53 * hash * super.hashCode();
+        hash = 53 * hash * workers.hashCode();
+        return hash;
+    }
+}
+
+==> estates/ManufactureFactory.java <==
+package estates;
+
+import product.ProductTypeEnum;
+
+import java.util.HashMap;
+
+public class  ManufactureFactory extends Estate implements Factory {
+    public ManufactureFactory() {
+        super();
+    }
+    public ManufactureFactory(String address) {
+        super(address);
+    }
+
+    @Override
+    public HashMap<ProductTypeEnum, Integer> produce() {
+        HashMap<ProductTypeEnum, Integer> result = new HashMap<>();
+        result.put(ProductTypeEnum.CLOTH, 163);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return  "estates.ManufactureFactory {" +
+                "inherit_class='" + super.toString() + "'" +
+                "}";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        if (!super.equals(obj))
+            return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 53 * hash * super.hashCode();
+        return hash;
+    }
+}
+==> estates/SugarFactory.java <==
+package estates;
+
+import product.ProductTypeEnum;
+
+import java.util.HashMap;
+
+public class SugarFactory extends Estate implements Factory {
+    public SugarFactory() {
+        super();
+    }
+    public SugarFactory(String address) {
+        super(address);
+    }
+    @Override
+    public HashMap<ProductTypeEnum, Integer> produce() {
+        HashMap<ProductTypeEnum, Integer> result = new HashMap<>();
+        result.put(ProductTypeEnum.SUGAR, 163);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return  "estates.SugarFactory {" +
+                "inherit_class='" + super.toString() + "'" +
+                "}";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        if (!super.equals(obj))
+            return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 53 * hash * super.hashCode();
+        return hash;
+    }
+}
+
+==> persons/CottonShorty.java <==
+package persons;
+
+import product.*;
+
+public class CottonShorty extends Shorty implements Worker {
+    public CottonShorty(String name, int age) {
+        super(name, age);
+        this.type = ProductTypeEnum.COTTON;
+    }
+
+    @Override
+    public Product work() {
+        return new Product(this.type, 3);
+    }
+}
+
+==> persons/MoonRyeShorty.java <==
+package persons;
+
+import product.Product;
+import product.ProductTypeEnum;
+
+public class MoonRyeShorty extends Shorty implements Worker {
+    public MoonRyeShorty(String name, int age) {
+        super(name, age);
+        this.type = ProductTypeEnum.MOON_RYE;
+    }
+
+    @Override
+    public Product work() {
+        return new Product(this.type, 3);
+    }
+}
+
+==> persons/MrSprouts.java <==
+package persons;
+
+import estates.Factory;
+import estates.Latifundia;
+import estates.ManufactureFactory;
+import estates.SugarFactory;
+import product.ProductTypeEnum;
+
+import java.util.HashMap;
+import java.util.Vector;
+
+public class MrSprouts extends Person {
+    public Vector<Factory> factories = new Vector<>();
+
+    public MrSprouts() {
+        super("Mr. Sprouts", 57);
+
+        factories.addElement(new ManufactureFactory("Something street, 1"));
+        for (int i = 1; i <= 30; ++i)
+            factories.addElement(new SugarFactory("Something street 2, " + 1 + i));
+        for (int i = 1; i <= 4; ++i) {
+            Latifundia lf = new Latifundia("Something street 3, " + 1 + i);
+            lf.workers.addElement(new SugarShorty("Никто", 10));
+            factories.addElement(lf);
+        }
+    }
+
+    public void manage() {
+        HashMap<ProductTypeEnum, Integer> result = new HashMap<>();
+        for (Factory f : factories) {
+            final HashMap<ProductTypeEnum, Integer> product = f.produce();
+            product.forEach((key, value) -> result.merge(key, value, Integer::sum));
+        }
+        System.out.println(result.toString());
+    }
+}
+
+==> persons/Person.java <==
+package persons;
+
+public abstract class Person {
+    protected String name;
+    protected int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+    public int getAge() {
+        return this.age;
+    }
+
+    public void setName(String new_name) {
+        this.name = new_name;
+    }
+    public void setAge(int new_age) {
+        this.age = new_age;
+    }
+
+    @Override
+    public String toString() {
+        return  "persons.Person {" +
+                "name='" + (this.name != null ? this.name : "null") + "', " +
+                "age=" + age + "}";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+
+        final Person o = (Person)obj;
+        return (this.name.equals(o.name) && this.age == o.age);
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 53 * hash + (this.name != null ? this.name.hashCode() : 0);
+        hash = 53 * hash + this.age;
+        return hash;
+    }
+}
+
+==> persons/Shorty.java <==
+package persons;
+
+import product.ProductTypeEnum;
+
+public abstract class Shorty extends Person {
+    protected ProductTypeEnum type;
+
+    public Shorty(String name, int age) {
+        super(name, age);
+    }
+
+    @Override
+    public String toString() {
+        return  "persons.Person {" +
+                "inherit_class='" + super.toString() + "', " +
+                "type=" + this.type +
+                "}";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        if (!super.equals(obj))
+            return false;
+
+        return type.equals(((Shorty) obj).type);
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 53 * hash + super.hashCode();
+        hash = 53 * hash + (this.type != null ? this.type.hashCode() : 0);
+        return hash;
+    }
+}
+
+==> persons/SugarShorty.java <==
+package persons;
+
+import product.Product;
+import product.ProductTypeEnum;
+
+public class SugarShorty extends Shorty implements Worker {
+    public SugarShorty(String name, int age) {
+        super(name, age);
+        this.type = ProductTypeEnum.SUGAR_BEET;
+    }
+
+    @Override
+    public Product work() {
+        return new Product(this.type, 3);
+    }
+}
+
+==> persons/WheatShorty.java <==
+package persons;
+
+import product.Product;
+import product.ProductTypeEnum;
+
+public class WheatShorty extends Shorty implements Worker {
+    public WheatShorty(String name, int age) {
+        super(name, age);
+        this.type = ProductTypeEnum.WHEAT;
+    }
+
+    @Override
+    public Product work() {
+        return new Product(this.type, 3);
+    }
+}
+
+==> persons/Worker.java <==
+package persons;
+
+import product.Product;
+
+public interface Worker {
+    Product work();
+}
+
+==> product/Product.java <==
+package product;
+
+public class Product {
+    public ProductTypeEnum type;
+    public int count;
+
+    public Product(ProductTypeEnum type, int count) {
+        this.type = type;
+        this.count = count;
+    }
+
+    @Override
+    public String toString() {
+        return  "product.Product {" +
+                "type=" + type.toString() + ", " +
+                "count=" + count + "}";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+
+        final Product o = (Product) obj;
+        return (this.type.equals(o.type) && this.count == o.count);
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 53 * hash + (this.type != null ? this.type.hashCode() : 0);
+        hash = 53 * hash + this.count;
+        return hash;
+    }
+}
+==> product/ProductTypeEnum.java <==
+package product;
+
+public enum ProductTypeEnum {
+    COTTON,
+    SUGAR_BEET,
+    MOON_RYE,
+    WHEAT,
+    CLOTH,
+    SUGAR,
+}

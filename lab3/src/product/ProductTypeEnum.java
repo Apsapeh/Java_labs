@@ -1,6 +1,10 @@
+package product;
+
 public enum ProductTypeEnum {
     COTTON,
-    SUGAR,
+    SUGAR_BEET,
     MOON_RYE,
-    WHEAT
+    WHEAT,
+    CLOTH,
+    SUGAR,
 }

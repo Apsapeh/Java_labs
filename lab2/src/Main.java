@@ -5,6 +5,13 @@ import src.pokemons.*;
 
 public class Main {
     public static void main(String []args) {
+        Runtime.getRuntime().addShutdownHook(new Thread() {
+            @Override
+            public void run() {
+                System.out.println("\nБой не был завершён, т.к использован Ctrl+C");
+            }
+        });
+
         Battle battle = new Battle();
         Pokemon [] pokemons = {
             new Leavanny("Картофель", 1),
@@ -24,5 +31,8 @@ public class Main {
         }
 
         battle.go();
+
+        Main x = null;
+        x.main(null);
     }
 }
