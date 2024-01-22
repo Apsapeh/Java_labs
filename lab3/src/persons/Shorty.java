@@ -1,5 +1,6 @@
 package persons;
 
+import product.Product;
 import product.ProductTypeEnum;
 
 public abstract class Shorty extends Person {
@@ -8,6 +9,8 @@ public abstract class Shorty extends Person {
     public Shorty(String name, int age) {
         super(name, age);
     }
+
+    public abstract Product work();
 
     @Override
     public String toString() {

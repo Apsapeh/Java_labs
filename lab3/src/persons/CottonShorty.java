@@ -2,7 +2,7 @@ package persons;
 
 import product.*;
 
-public class CottonShorty extends Shorty implements Worker {
+public class CottonShorty extends Shorty{
     public CottonShorty(String name, int age) {
         super(name, age);
         this.type = ProductTypeEnum.COTTON;

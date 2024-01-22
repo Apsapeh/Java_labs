@@ -1,14 +1,15 @@
 ==> Main.java <==
-import estates.ManufactureFactory;
 import persons.MrSprouts;
+import persons.Manger;
 import product.ProductTypeEnum;
-import estates.Latifundia;
-import persons.*;
-
-public class Main {
+public class Main{
     public static void main(String[] args) {
-        MrSprouts mrSprouts = new MrSprouts();
+        Manger mrSprouts = new MrSprouts();
         mrSprouts.manage();
+
+        System.out.println(mrSprouts.test_method());
+        ProductTypeEnum e = ProductTypeEnum.SUGAR;
+        System.out.println(e.getNumber());
     }
 }
 
@@ -27,6 +28,10 @@ public class Main {
 ==> estates/Estate.java <==
 package estates;
 
+import product.ProductTypeEnum;
+
+import java.util.HashMap;
+
 public abstract class Estate {
     protected String address;
 
@@ -42,6 +47,8 @@ public abstract class Estate {
     public void setAddress(String new_address) {
         this.address = new_address;
     }
+
+    public abstract HashMap<ProductTypeEnum, Integer> produce();
 
     @Override
     public String toString() {
@@ -66,27 +73,18 @@ public abstract class Estate {
     }
 }
 
-==> estates/Factory.java <==
-package estates;
-
-import java.util.HashMap;
-import product.ProductTypeEnum;
-
-public interface Factory {
-    HashMap<ProductTypeEnum, Integer> produce();
-}
 ==> estates/Latifundia.java <==
 package estates;
 
-import persons.Worker;
+import persons.Shorty;
 import product.ProductTypeEnum;
 import product.Product;
 
 import java.util.HashMap;
 import java.util.Vector;
 
-public class Latifundia extends Estate implements Factory {
-    public Vector<Worker> workers = new Vector<>();
+public class Latifundia extends Estate{
+    public Vector<Shorty> workers = new Vector<>();
 
     public Latifundia() {
         super();
@@ -97,7 +95,7 @@ public class Latifundia extends Estate implements Factory {
 
     public HashMap<ProductTypeEnum, Integer> produce() {
         HashMap<ProductTypeEnum, Integer> result = new HashMap<>();
-        for (Worker w : workers) {
+        for (Shorty w : workers) {
             final Product pr = w.work();
             result.merge(pr.type, pr.count, Integer::sum);
         }
@@ -140,7 +138,7 @@ import product.ProductTypeEnum;
 
 import java.util.HashMap;
 
-public class  ManufactureFactory extends Estate implements Factory {
+public class  ManufactureFactory extends Estate{
     public ManufactureFactory() {
         super();
     }
@@ -188,7 +186,7 @@ import product.ProductTypeEnum;
 
 import java.util.HashMap;
 
-public class SugarFactory extends Estate implements Factory {
+public class SugarFactory extends Estate {
     public SugarFactory() {
         super();
     }
@@ -234,7 +232,7 @@ package persons;
 
 import product.*;
 
-public class CottonShorty extends Shorty implements Worker {
+public class CottonShorty extends Shorty{
     public CottonShorty(String name, int age) {
         super(name, age);
         this.type = ProductTypeEnum.COTTON;
@@ -246,13 +244,24 @@ public class CottonShorty extends Shorty implements Worker {
     }
 }
 
+==> persons/Manger.java <==
+package persons;
+
+public interface Manger {
+    void manage();
+
+    default int test_method() {
+        return 124;
+    }
+}
+
 ==> persons/MoonRyeShorty.java <==
 package persons;
 
 import product.Product;
 import product.ProductTypeEnum;
 
-public class MoonRyeShorty extends Shorty implements Worker {
+public class MoonRyeShorty extends Shorty{
     public MoonRyeShorty(String name, int age) {
         super(name, age);
         this.type = ProductTypeEnum.MOON_RYE;
@@ -267,7 +276,7 @@ public class MoonRyeShorty extends Shorty implements Worker {
 ==> persons/MrSprouts.java <==
 package persons;
 
-import estates.Factory;
+import estates.Estate;
 import estates.Latifundia;
 import estates.ManufactureFactory;
 import estates.SugarFactory;
@@ -276,8 +285,8 @@ import product.ProductTypeEnum;
 import java.util.HashMap;
 import java.util.Vector;
 
-public class MrSprouts extends Person {
-    public Vector<Factory> factories = new Vector<>();
+public class MrSprouts extends Person implements Manger{
+    public Vector<Estate> factories = new Vector<>();
 
     public MrSprouts() {
         super("Mr. Sprouts", 57);
@@ -287,25 +296,25 @@ public class MrSprouts extends Person {
             factories.addElement(new SugarFactory("Something street 2, " + 1 + i));
         for (int i = 1; i <= 4; ++i) {
             Latifundia lf = new Latifundia("Something street 3, " + 1 + i);
-            lf.workers.addElement(new SugarShorty("Никто", 10));
+            lf.workers.addElement(new WheatShorty("Никто", 10));
             factories.addElement(lf);
         }
     }
 
     public void manage() {
         HashMap<ProductTypeEnum, Integer> result = new HashMap<>();
-        for (Factory f : factories) {
+        for (Estate f : factories) {
             final HashMap<ProductTypeEnum, Integer> product = f.produce();
             product.forEach((key, value) -> result.merge(key, value, Integer::sum));
         }
-        System.out.println(result.toString());
+        System.out.println(result);
     }
 }
 
 ==> persons/Person.java <==
 package persons;
 
-public abstract class Person {
+public class Person {
     protected String name;
     protected int age;
 
@@ -358,6 +367,7 @@ public abstract class Person {
 ==> persons/Shorty.java <==
 package persons;
 
+import product.Product;
 import product.ProductTypeEnum;
 
 public abstract class Shorty extends Person {
@@ -366,6 +376,8 @@ public abstract class Shorty extends Person {
     public Shorty(String name, int age) {
         super(name, age);
     }
+
+    public abstract Product work();
 
     @Override
     public String toString() {
@@ -402,7 +414,7 @@ package persons;
 import product.Product;
 import product.ProductTypeEnum;
 
-public class SugarShorty extends Shorty implements Worker {
+public class SugarShorty extends Shorty{
     public SugarShorty(String name, int age) {
         super(name, age);
         this.type = ProductTypeEnum.SUGAR_BEET;
@@ -420,7 +432,7 @@ package persons;
 import product.Product;
 import product.ProductTypeEnum;
 
-public class WheatShorty extends Shorty implements Worker {
+public class WheatShorty extends Shorty{
     public WheatShorty(String name, int age) {
         super(name, age);
         this.type = ProductTypeEnum.WHEAT;
@@ -430,15 +442,6 @@ public class WheatShorty extends Shorty implements Worker {
     public Product work() {
         return new Product(this.type, 3);
     }
-}
-
-==> persons/Worker.java <==
-package persons;
-
-import product.Product;
-
-public interface Worker {
-    Product work();
 }
 
 ==> product/Product.java <==
@@ -483,10 +486,54 @@ public class Product {
 package product;
 
 public enum ProductTypeEnum {
-    COTTON,
-    SUGAR_BEET,
-    MOON_RYE,
-    WHEAT,
-    CLOTH,
-    SUGAR,
+
+    COTTON /*{
+        public String toString() {
+            return "Хлопок";
+        }
+    }*/,
+    SUGAR_BEET /*{
+        public String toString() {
+            return "Сахарная свёкла";
+        }
+    }*/,
+    MOON_RYE /*{
+        public String toString() {
+            return "Лунная рожь";
+        }
+    }*/,
+    WHEAT /*{
+        public String toString() {
+            return "Пшеница";
+        }
+    }*/,
+    CLOTH /*{
+        public String toString() {
+            return "Ткань";
+        }
+    }*/,
+    SUGAR /*{
+        public String toString() {
+            return "Сахар";
+        }
+    }*/;
+
+    private int number = 3;
+    ProductTypeEnum() {
+        number = 10;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    int [] x[] ;
+    public String toString() {
+        String [] ru = {
+                "Хлопок", "Сахарная свёкла", "Лунная рожь",
+                "Пшеница", "Ткань", "Сахар"
+        };
+        //return (new String [] {"a", "b"})[1];
+        return ru[ordinal()];
+    }
 }

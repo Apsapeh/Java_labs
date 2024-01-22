@@ -1,25 +1,26 @@
 package estates;
 
-import persons.Worker;
+import exceptions.AddressTakenException;
+import persons.Shorty;
 import product.ProductTypeEnum;
 import product.Product;
 
 import java.util.HashMap;
 import java.util.Vector;
 
-public class Latifundia extends Estate implements Factory {
-    public Vector<Worker> workers = new Vector<>();
+public class Latifundia extends Estate{
+    public Vector<Shorty> workers = new Vector<>();
 
     public Latifundia() {
         super();
     }
-    public Latifundia(String address) {
+    public Latifundia(String address) throws AddressTakenException {
         super(address);
     }
 
     public HashMap<ProductTypeEnum, Integer> produce() {
         HashMap<ProductTypeEnum, Integer> result = new HashMap<>();
-        for (Worker w : workers) {
+        for (Shorty w : workers) {
             final Product pr = w.work();
             result.merge(pr.type, pr.count, Integer::sum);
         }

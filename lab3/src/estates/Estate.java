@@ -1,10 +1,21 @@
 package estates;
 
+import product.ProductTypeEnum;
+import exceptions.AddressTakenException;
+
+import java.util.HashMap;
+import java.util.Vector;
+
 public abstract class Estate {
+    static Vector<Integer> taken_addresses = new Vector<Integer>();
     protected String address;
 
     public Estate() {}
-    public Estate(String address) {
+    public Estate(String address) throws AddressTakenException {
+        if (taken_addresses.contains(address.hashCode())) {
+            throw new AddressTakenException();
+        }
+        taken_addresses.add(address.hashCode());
         this.address = address;
     }
 
@@ -15,6 +26,8 @@ public abstract class Estate {
     public void setAddress(String new_address) {
         this.address = new_address;
     }
+
+    public abstract HashMap<ProductTypeEnum, Integer> produce();
 
     @Override
     public String toString() {

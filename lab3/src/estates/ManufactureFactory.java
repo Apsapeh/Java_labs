@@ -1,14 +1,15 @@
 package estates;
 
+import exceptions.AddressTakenException;
 import product.ProductTypeEnum;
 
 import java.util.HashMap;
 
-public class  ManufactureFactory extends Estate implements Factory {
+public class  ManufactureFactory extends Estate{
     public ManufactureFactory() {
         super();
     }
-    public ManufactureFactory(String address) {
+    public ManufactureFactory(String address) throws AddressTakenException {
         super(address);
     }
 

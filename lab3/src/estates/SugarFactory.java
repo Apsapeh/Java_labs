@@ -1,14 +1,15 @@
 package estates;
 
+import exceptions.AddressTakenException;
 import product.ProductTypeEnum;
 
 import java.util.HashMap;
 
-public class SugarFactory extends Estate implements Factory {
+public class SugarFactory extends Estate {
     public SugarFactory() {
         super();
     }
-    public SugarFactory(String address) {
+    public SugarFactory(String address) throws AddressTakenException {
         super(address);
     }
     @Override

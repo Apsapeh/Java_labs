@@ -1,0 +1,78 @@
+Estates:
+  estates.ManufactureFactory {inherit_class='estates.Estate {address='Something street, 1'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 11'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 12'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 13'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 14'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 15'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 16'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 17'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 18'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 19'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 110'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 111'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 112'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 113'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 114'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 115'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 116'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 117'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 118'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 119'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 120'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 121'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 122'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 123'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 124'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 125'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 126'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 127'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 128'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 129'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 130'}'}
+  estates.Latifundia {inherit_class='estates.Estate {address='Something street 3, 11'}', workers=[persons.Person {inherit_class='persons.Person {name='Никто', age=10}', type=Пшеница}]}
+  estates.Latifundia {inherit_class='estates.Estate {address='Something street 3, 12'}', workers=[persons.Person {inherit_class='persons.Person {name='Никто', age=10}', type=Пшеница}]}
+  estates.Latifundia {inherit_class='estates.Estate {address='Something street 3, 13'}', workers=[persons.Person {inherit_class='persons.Person {name='Никто', age=10}', type=Пшеница}]}
+  estates.Latifundia {inherit_class='estates.Estate {address='Something street 3, 14'}', workers=[persons.Person {inherit_class='persons.Person {name='Никто', age=10}', type=Пшеница}]}
+Barn: 
+   {}
+
+Estates:
+  estates.ManufactureFactory {inherit_class='estates.Estate {address='Something street, 1'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 11'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 12'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 13'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 14'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 15'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 16'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 17'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 18'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 19'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 110'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 111'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 112'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 113'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 114'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 115'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 116'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 117'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 118'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 119'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 120'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 121'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 122'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 123'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 124'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 125'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 126'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 127'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 128'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 129'}'}
+  estates.SugarFactory {inherit_class='estates.Estate {address='Something street 2, 130'}'}
+  estates.Latifundia {inherit_class='estates.Estate {address='Something street 3, 11'}', workers=[persons.Person {inherit_class='persons.Person {name='Никто', age=10}', type=Пшеница}]}
+  estates.Latifundia {inherit_class='estates.Estate {address='Something street 3, 12'}', workers=[persons.Person {inherit_class='persons.Person {name='Никто', age=10}', type=Пшеница}]}
+  estates.Latifundia {inherit_class='estates.Estate {address='Something street 3, 13'}', workers=[persons.Person {inherit_class='persons.Person {name='Никто', age=10}', type=Пшеница}]}
+  estates.Latifundia {inherit_class='estates.Estate {address='Something street 3, 14'}', workers=[persons.Person {inherit_class='persons.Person {name='Никто', age=10}', type=Пшеница}]}
+Barn: 
+   {Ткань=163, Сахар=4890, Пшеница=12}
+

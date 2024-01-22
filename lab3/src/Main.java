@@ -1,8 +1,10 @@
 import persons.MrSprouts;
-
-public class Main {
+import persons.Manger;
+import product.ProductTypeEnum;
+public class Main{
     public static void main(String[] args) {
-        MrSprouts mrSprouts = new MrSprouts();
+        Manger mrSprouts = new MrSprouts();
+        mrSprouts.manage();
         mrSprouts.manage();
     }
 }
