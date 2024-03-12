@@ -63,7 +63,7 @@ public class MrSprouts extends Person implements Manger{
                 factories.addElement(lf);
             }
         }
-        catch (AddressTakenException e) {
+        catch (AddressTakenException e){
             System.out.println("Недвижимость с этим адресом уже существует");
         }
         Logger logger = new Logger();
