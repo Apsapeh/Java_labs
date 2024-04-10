@@ -1,0 +1,5 @@
+[
+	{"id": 4, "name": "Hello", "x": 12, "y": 12,"creationDate": "2024-04-10T12:55:36.460890", "enginePower": 125, "type": "SUBMARINE", "fuelType": "PLASMA"},
+	{"id": 3, "name": "Hello", "x": 12, "y": 12,"creationDate": "2024-04-10T12:47:06.970396", "enginePower": 125, "type": "SUBMARINE", "fuelType": "PLASMA"},
+	{"id": 1, "name": "Hello", "x": 12, "y": 12,"creationDate": "2024-04-10T12:46:45.728970", "enginePower": 125, "type": "SUBMARINE", "fuelType": "PLASMA"}
+]
