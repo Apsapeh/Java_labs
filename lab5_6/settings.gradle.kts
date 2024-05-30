@@ -1,3 +1,5 @@
 rootProject.name = "lab5_6"
 
-include(":main:java:org:apsapeh:Client")
+include("general")
+include("client")
+include("server")
